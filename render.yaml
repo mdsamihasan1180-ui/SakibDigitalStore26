@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: sakib-digital-store-user
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PANEL_ROLE
+        value: user
+      - key: FIREBASE_DATABASE_URL
+        value: https://premium-top-up-a2e23-default-rtdb.firebaseio.com
+      - key: FIREBASE_STORAGE_BUCKET
+        value: premium-top-up-a2e23.firebasestorage.app
+      - key: FIREBASE_SERVICE_ACCOUNT
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
